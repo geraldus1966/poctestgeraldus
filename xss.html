@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<body style="background:#1a1a2e;color:#0f0;font-family:monospace;padding:40px">
+<h1>XSS PROOF — running on: <span id="d"></span></h1>
+<p>Cookies visible to JS: <span id="c"></span></p>
+<p>localStorage keys: <span id="l"></span></p>
+<script>
+  document.getElementById('d').textContent = document.domain;
+  document.getElementById('c').textContent = document.cookie || '(none — HttpOnly or empty)';
+  document.getElementById('l').textContent = Object.keys(localStorage).join(', ') || '(empty)';
+</script>
+</body>
+</html>
